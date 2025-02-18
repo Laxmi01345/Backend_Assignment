@@ -2,7 +2,9 @@ import express from 'express'
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
 import {Auth, User} from '../Models/User.js'
+import dotenv from 'dotenv'
 
+dotenv.config();
 
 const SignUp =async(req,res)=>{
     
@@ -35,7 +37,7 @@ const SignUp =async(req,res)=>{
         const newUser = Auth({name , email , password: hashedPassword});
         await newUser.save();
 
-        const token = jwt.sign({email:newUser.email}, "jwt-134",{
+        const token = jwt.sign({email:newUser.email}, process.env.JWT_SECRET,{
             expiresIn:'1d'
         })
         res.json({status:"success",token})
@@ -72,7 +74,7 @@ const Login = async(req,res)=>{
         const isMatch = await bcrypt.compare(password , user.password)
 
         if (isMatch){
-            const token = jwt.sign({email : user.email}, "jwt-134",{
+            const token = jwt.sign({email : user.email}, process.env.JWT_SECRET,{
                 expiresIn:'1d'
             });
 

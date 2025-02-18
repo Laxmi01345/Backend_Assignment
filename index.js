@@ -1,15 +1,17 @@
 import express from 'express'
 import mongoose from 'mongoose'
 import User from './Routes/User.js';
+import dotenv from 'dotenv'
 
+dotenv.config();
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT;
 
 app.use(express.json());
 
 const connectDB = async()=>{
-    await mongoose.connect(`mongodb+srv://laxmiray013:00fzmULiSUtJXzgP@cluster0.ugl4e.mongodb.net/`);
+    await mongoose.connect(process.env.MONGO_URL);
     console.log("database connected ")
 }
 connectDB();
