@@ -22,8 +22,8 @@ This is a Node.js-based API built with Express and MongoDB, implementing user au
 
 ### 1. Clone the Repository
 ```sh
-git clone https://github.com/your-repo/user-auth-crud-api.git
-cd user-auth-crud-api
+git clone [https://github.com/your-repo/user-auth-crud-api.git](https://github.com/Laxmi01345/Simple-User-Management-API.git)
+cd [user-auth-crud-api](https://github.com/Laxmi01345/Simple-User-Management-API.git)
 ```
 
 ### 2. Install Dependencies
@@ -121,15 +121,15 @@ Server will run on `http://localhost:3000`
 ## Folder Structure
 ```
 user-auth-crud-api/
-│── controllers/
-│   ├── userController.js
-│── middlewares/
-│   ├── authMiddleware.js
-│── models/
+│── Controller/
 │   ├── User.js
-│── routes/
-│   ├── userRoutes.js
-│── server.js
+│── Middleware/
+│   ├── Auth.js
+│── Models/
+│   ├── User.js
+│── Routes/
+│   ├── User.js
+│── index.js
 │── package.json
 │── .env
 │── README.md
